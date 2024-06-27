@@ -1,0 +1,115 @@
+<h1 *ngIf="pagecondt==true then showForm else showtable"></h1>
+
+
+
+<ng-template #showForm>
+<div class="limiter" >
+  <div class="container-login100">
+  <div class="wrap-login100">
+  <div class="login100-pic js-tilt login100-more" data-tilt="" style="will-change: transform; transform: perspective(300px) rotateX(0deg) rotateY(0deg);">
+  <img src="https://colorlib.com/etc/lf/Login_v18/images/bg-01.jpg" alt="IMG">
+  </div>
+  <form class="login100-form validate-form" #Singup="ngForm" (ngSubmit)=" OnSubmit(Singup)">
+  <span class="login100-form-title">
+  Member Login
+  </span>
+  <div class="wrap-input100 validate-input alert-validate" data-validate="Please enter your name" >
+  <input class="input100" type="text" name="name" placeholder="Name" [(ngModel)]="username" required="">
+  <span class="focus-input100"></span>
+  <span class="symbol-input100">
+  <i class="fa fa-envelope" aria-hidden="true"></i>
+  </span>
+  </div>
+  <div class="wrap-input100 validate-input alert-validate" data-validate="Please enter your valid Phone Number" >
+    <input class="input100" type="text" name="phone" placeholder="Phone" [(ngModel)]="userph" required="">
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+    <i class="fa fa-envelope" aria-hidden="true"></i>
+    </span>
+    </div>
+  <div class="wrap-input100 validate-input alert-validate" data-validate="Please enter your current address" >
+    <input class="input100" type="text" name="adress" placeholder="Adress" [(ngModel)]="useradress" required="">
+    <span class="focus-input100"></span>
+    <span class="symbol-input100">
+    <i class="fa fa-envelope" aria-hidden="true"></i>
+    </span>
+    </div>
+  <div class="wrap-input100 validate-input alert-validate" data-validate="Password is required" >
+  <input class="input100" type="password" name="password" placeholder="Password" [(ngModel)]="userpassword" required="">
+  <span class="focus-input100"></span>
+  <span class="symbol-input100">
+  <i class="fa fa-lock" aria-hidden="true"></i>
+  </span>
+  </div>
+  <div class="container-login100-form-btn">
+  <button class="login100-form-btn" >
+  {{btnname}}
+  </button>
+  </div>
+  <div class="container-login100-form-btn">
+    <button class="login100-form-btn" (click)="cancelbtn()">
+    Cancel
+    </button>
+    </div>
+  <div class="text-center p-t-12">
+  <span class="txt1">
+  Forgot
+  </span>
+  <a class="txt2" href="#">
+  Username / Password?
+  </a>
+  </div>
+  <div class="text-center p-t-136">
+  <a class="txt2" href="#">
+  Create your Account
+  <i class="fa fa-long-arrow-right m-l-5" aria-hidden="true"></i>
+  </a>
+  </div>
+  </form>
+  </div>
+  </div>
+  </div>
+  </ng-template>
+
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #showtable>
+  <h1><span class="blue"><button (click)="onclickbtn()" class="btn">Sign Up</button></span></h1>
+    <!-- <h2>Created with love by <a href="https://github.com/pablorgarcia" target="_blank">Pablo García</a></h2> -->
+    
+   
+    
+    <table class="container">
+      
+      <thead>
+        <tr>
+          <th><h1>Sites</h1></th>
+          <th><h1>Views</h1></th>
+          <th><h1>Clicks</h1></th>
+          <th><h1>Average</h1></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of Getdata">
+          <td>{{data.name}}</td>
+          <td>{{data.adress}}</td>
+          <td>{{data.phone}}</td>
+          <td>{{data.password}}</td>
+          <td><button (click)="editItem(data._id)">Edit</button></td>
+          <td><button (click)="DeleteItem(data._id)">Delete</button></td>
+        </tr>
+        
+      </tbody>
+    </table>
+</ng-template>
